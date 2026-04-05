@@ -179,8 +179,30 @@
         <p>Email: ankit.demo@amadeus-ai.com</p>
     </div>
     <footer>
-        © 2026 Amadeus AI SDR Agent | Built by Ankit Sirohi
+        © 2026 Amadeus AI SDR Agent | Built by Ankit Sirohi Today
     </footer>
+
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+                embeddedservice_bootstrap.init(
+                    '00DKZ00000BQiip',
+                    'Amadeus_Messaging_Setting',
+                    'https://co1754924520545.my.site.com/ESWAmadeusMessagingSett1775369307643',
+                    {
+                        scrt2URL: 'https://co1754924520545.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+    <script type='text/javascript'
+        src='https://co1754924520545.my.site.com/ESWAmadeusMessagingSett1775369307643/assets/js/bootstrap.min.js'
+        onload='initEmbeddedMessaging()'></script>
 </body>
 
 </html>
