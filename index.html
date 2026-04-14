@@ -1,208 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <title>Amadeus AI SDR Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amadeus Advanced UI</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f6f9;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: white;
         }
 
-        nav {
-            background: #0b3d91;
+        .logo {
+            font-weight: bold;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
             color: white;
-            padding: 15px 40px;
+            padding: 120px 40px;
+            background: #001a3d;
+        }
+
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, #0077ff, transparent),
+                radial-gradient(circle at 70% 70%, #00c6ff, transparent);
+            animation: waveMove 8s infinite linear;
+            opacity: 0.4;
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateX(-25%) rotate(180deg);
+            }
+
+            100% {
+                transform: translateX(0) rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero button {
+            padding: 12px 20px;
+            margin-top: 20px;
+            background: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: #002f6c;
+            color: white;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
             display: flex;
             justify-content: space-between;
         }
 
-        nav a {
+        .controls button {
+            background: rgba(0, 0, 0, 0.5);
             color: white;
-            margin-left: 20px;
-            text-decoration: none;
-        }
-
-        .hero {
-            background: linear-gradient(to right, #0b3d91, #0070d2);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-        }
-
-        .hero p {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-
-        .hero button {
-            margin-top: 20px;
-            padding: 12px 25px;
             border: none;
-            background: white;
-            color: #0b3d91;
-            font-weight: bold;
+            padding: 10px;
             cursor: pointer;
         }
 
-        .section {
-            padding: 60px 20px;
+        .about {
             text-align: center;
+            padding: 60px 20px;
         }
 
-        .section h2 {
-            margin-bottom: 20px;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
-        .card {
-            background: white;
-            width: 280px;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        .stat b {
+            display: block;
+            font-size: 28px;
+            color: #2b6cb0;
         }
 
-        .workflow {
-            max-width: 1000px;
+        
+        .contact {
+            padding: 60px 20px;
+            background: #f4f6f9;
+        }
+
+        .contact-form {
+            max-width: 500px;
             margin: auto;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .step {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid #0070d2;
-            border-radius: 8px;
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
         }
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
+        
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <div><b>Amadeus AI SDR</b></div>
-        <div>
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Workflow</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
+    <div class="navbar">
+        <div class="logo">AMADEUS</div>
+    </div>
     <div class="hero">
-        <h1>AI-Powered SDR Agent</h1>
-        <p>Automate lead qualification and accelerate your sales pipeline using Salesforce Agentforce</p>
-        <button>Start Demo</button>
-    </div>
-    <div class="section">
-        <h2>Key Features</h2>
-        <div class="cards">
+        <div class="wave"></div>
 
-            <div class="card">
-                <h3>🤖 Intelligent Lead Qualification</h3>
-                <p>Automatically qualify inbound leads using AI-driven conversations and scoring.</p>
-            </div>
-
-            <div class="card">
-                <h3>⚡ Real-Time Engagement</h3>
-                <p>Engage prospects instantly via chat, improving conversion and response time.</p>
-            </div>
-
-            <div class="card">
-                <h3>🔗 Salesforce Integration</h3>
-                <p>Seamlessly create and update Leads, Tasks, and Activities in Salesforce.</p>
-            </div>
-
-            <div class="card">
-                <h3>📊 Smart Routing</h3>
-                <p>Route qualified leads to the right SDR based on region, interest, or score.</p>
-            </div>
-
+        <div class="hero-content">
+            <h1>How can AI transform travel at scale?</h1>
+            <button>Learn more</button>
         </div>
     </div>
-    <div class="section">
-        <h2>How It Works</h2>
+    <div class="carousel">
+        <div class="slides" id="slides">
+            <div class="slide">AI Solutions</div>
+            <div class="slide">Cloud Technologies</div>
+            <div class="slide">Sustainability</div>
+        </div>
 
-        <div class="workflow">
-
-            <div class="step">
-                <h3>Step 1: Lead Initiation</h3>
-                <p>Prospects initiate interaction through web chat, landing page forms, or marketing campaigns.</p>
-            </div>
-
-            <div class="step">
-                <h3>Step 2: AI Conversation</h3>
-                <p>The AI agent engages the user, asks qualifying questions, and gathers key details like company size,
-                    budget, and intent.</p>
-            </div>
-
-            <div class="step">
-                <h3>Step 3: Lead Qualification</h3>
-                <p>The system evaluates responses and assigns a qualification score based on predefined criteria.</p>
-            </div>
-
-            <div class="step">
-                <h3>Step 4: CRM Update</h3>
-                <p>Lead records are created or updated in Salesforce with all captured details and conversation history.
-                </p>
-            </div>
-
-            <div class="step">
-                <h3>Step 5: SDR Handoff</h3>
-                <p>Qualified leads are routed to human SDRs for follow-up, ensuring faster deal closure.</p>
-            </div>
-
+        <div class="controls">
+            <button onclick="prevSlide()">❮</button>
+            <button onclick="nextSlide()">❯</button>
         </div>
     </div>
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: ankit.demo@amadeus-ai.com</p>
+    <div class="about">
+        <h2>At the heart of travel</h2>
+        <p>Amadeus technology powers the global travel and tourism industry.</p>
+
+        <div class="stats">
+            <div class="stat"><b>400+</b>Airlines</div>
+            <div class="stat"><b>2M+</b>Hotels</div>
+            <div class="stat"><b>210</b>Airports</div>
+            <div class="stat"><b>230</b>Operators</div>
+        </div>
     </div>
-    <footer>
-        © 2026 Amadeus AI SDR Agent | Built by Ankit Sirohi Today Morning!
-    </footer>
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <input placeholder="Name">
+            <input placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button>Send</button>
+        </div>
+    </div>
+    <script>
+        let index = 0;
+        function showSlide() {
+            const slides = document.getElementById("slides");
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
 
-    <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+        function nextSlide() {
+            index = (index + 1) % 3;
+            showSlide();
+        }
 
-                embeddedservice_bootstrap.init(
-                    '00DKZ00000BQiip',
-                    'Amadeus_Messaging_Setting',
-                    'https://co1754924520545.my.site.com/ESWAmadeusMessagingSett1775369307643',
-                    {
-                        scrt2URL: 'https://co1754924520545.my.salesforce-scrt.com'
-                    }
-                );
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
-            }
-        };
+        function prevSlide() {
+            index = (index - 1 + 3) % 3;
+            showSlide();
+        }
+        setInterval(() => {
+            nextSlide();
+        }, 3000);
     </script>
-    <script type='text/javascript'
-        src='https://co1754924520545.my.site.com/ESWAmadeusMessagingSett1775369307643/assets/js/bootstrap.min.js'
-        onload='initEmbeddedMessaging()'></script>
 </body>
-
 </html>
