@@ -29,7 +29,6 @@
 
         .logo {
             font-weight: bold;
-            font-size: 18px;
         }
 
         /* HERO */
@@ -39,32 +38,29 @@
             background: linear-gradient(135deg, #0b3d6e, #001a3d);
             color: white;
             padding: 120px 60px;
+            min-height: 70vh;
             display: flex;
             align-items: center;
-            min-height: 70vh;
         }
 
         .hero-content {
-            max-width: 600px;
             z-index: 2;
+            max-width: 600px;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 40px;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
 
         .hero button {
             padding: 12px 20px;
-            border-radius: 6px;
-            border: none;
             background: white;
-            cursor: pointer;
-            font-weight: 600;
+            border: none;
+            border-radius: 6px;
         }
 
-        /* WAVE BACKGROUND */
+        /* WAVE */
         .wave {
             position: absolute;
             width: 200%;
@@ -91,7 +87,6 @@
 
         /* CAROUSEL */
         .carousel {
-            position: relative;
             overflow: hidden;
             height: 220px;
             background: #002f6c;
@@ -104,27 +99,10 @@
 
         .slide {
             min-width: 100%;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 22px;
-        }
-
-        .controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .controls button {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
         }
 
         /* ABOUT */
@@ -134,20 +112,11 @@
             background: white;
         }
 
-        .about h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
         .stats {
-            margin-top: 40px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-        }
-
-        .stat {
-            font-size: 16px;
+            margin-top: 30px;
         }
 
         .stat b {
@@ -168,54 +137,65 @@
 
         /* FORM */
         .contact-form {
-            max-width: 500px;
+            max-width: 700px;
             margin: auto;
             background: white;
             padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-            display: flex;
-            flex-direction: column;
+        /* GRID FORM */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            width: 100%;
+        .full {
+            grid-column: span 2;
         }
 
-        .contact-form button {
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            display: block;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button.submit-btn {
+            margin-top: 20px;
+            width: 100%;
             padding: 12px;
             background: #2f855a;
             color: white;
             border: none;
             border-radius: 6px;
+            font-weight: bold;
             cursor: pointer;
-            font-weight: 600;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .stats {
+        @media (max-width: 768px) {
+            .form-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding: 80px 20px;
+            .full {
+                grid-column: span 1;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -231,7 +211,6 @@
     <!-- HERO -->
     <div class="hero">
         <div class="wave"></div>
-
         <div class="hero-content">
             <h1>How can AI transform travel at scale?</h1>
             <button>Learn more</button>
@@ -245,56 +224,141 @@
             <div class="slide">Cloud Technologies</div>
             <div class="slide">Sustainability</div>
         </div>
-
-        <div class="controls">
-            <button onclick="prevSlide()">❮</button>
-            <button onclick="nextSlide()">❯</button>
-        </div>
     </div>
 
     <!-- ABOUT -->
     <div class="about">
         <h2>At the heart of travel</h2>
-        <p>Amadeus technology powers the global travel ecosystem.</p>
+        <p>Amadeus powers global travel technology.</p>
 
         <div class="stats">
-            <div class="stat"><b>400+</b>Airlines</div>
-            <div class="stat"><b>2M+</b>Hotels</div>
-            <div class="stat"><b>210</b>Airports</div>
-            <div class="stat"><b>230</b>Operators</div>
+            <div><b>400+</b>Airlines</div>
+            <div><b>2M+</b>Hotels</div>
+            <div><b>210</b>Airports</div>
+            <div><b>230</b>Operators</div>
         </div>
     </div>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (WEB TO LEAD) -->
     <div class="contact">
         <h2>Contact Us</h2>
 
-        <div class="contact-form">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button>Send Message</button>
-        </div>
+        <form class="contact-form"
+            action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKZ00000BQiip"
+            method="POST">
+
+            <input type="hidden" name="oid" value="00DKZ00000BQiip">
+            <input type="hidden" name="retURL" value="https://ankitsirohi505.github.io/amadeusagent/thankyou.html">
+
+            <div class="form-grid">
+
+                <!-- Name -->
+                <div>
+                    <label>First Name</label>
+                    <input name="first_name">
+                </div>
+
+                <div>
+                    <label>Last Name</label>
+                    <input name="last_name" required>
+                </div>
+
+                <!-- Email + Company -->
+                <div>
+                    <label>Email</label>
+                    <input name="email" type="email">
+                </div>
+
+                <div>
+                    <label>Company</label>
+                    <input name="company" required>
+                </div>
+
+                <!-- Title -->
+                <div>
+                    <label>Title</label>
+                    <input name="title">
+                </div>
+
+                <!-- Industry (FULL SALESFORCE LIST) -->
+                <div>
+                    <label>Industry</label>
+                    <select name="industry">
+                        <option value="">--None--</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Apparel">Apparel</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Chemicals">Chemicals</option>
+                        <option value="Communications">Communications</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Education">Education</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Energy">Energy</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Environmental">Environmental</option>
+                        <option value="Food & Beverage">Food & Beverage</option>
+                        <option value="Government">Government</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Media">Media</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Travel & Tourism">Travel & Tourism</option>
+                    </select>
+                </div>
+
+                <!-- Address Fields -->
+                <div class="full">
+                    <label>Street</label>
+                    <textarea name="street"></textarea>
+                </div>
+
+                <div>
+                    <label>City</label>
+                    <input name="city">
+                </div>
+
+                <div>
+                    <label>State</label>
+                    <input name="state">
+                </div>
+
+                <div>
+                    <label>Zip</label>
+                    <input name="zip">
+                </div>
+
+                <div>
+                    <label>Country</label>
+                    <input name="country">
+                </div>
+
+                <!-- Description -->
+                <div class="full">
+                    <label>Description</label>
+                    <textarea name="description" rows="4"></textarea>
+                </div>
+
+            </div>
+
+            <button class="submit-btn" type="submit">Submit</button>
+
+        </form>
     </div>
 
     <script>
         let index = 0;
-
-        function showSlide() {
-            const slides = document.getElementById("slides");
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }
-
         function nextSlide() {
             index = (index + 1) % 3;
-            showSlide();
+            document.getElementById("slides").style.transform =
+                `translateX(-${index * 100}%)`;
         }
-
-        function prevSlide() {
-            index = (index - 1 + 3) % 3;
-            showSlide();
-        }
-
         setInterval(nextSlide, 3000);
     </script>
 
